@@ -295,6 +295,15 @@ fun HeroContentSection(
                             )
                         }
 
+                        if (onOpenFullShow != null) {
+                            ActionIconButton(
+                                icon = Icons.Default.VideoLibrary,
+                                contentDescription = stringResource(R.string.hero_open_full_show),
+                                onClick = onOpenFullShow,
+                                onFocused = onHeroActionFocused
+                            )
+                        }
+
                         if (trailerAvailable) {
                             ActionIconButtonPainter(
                                 painter = trailerPainter,
@@ -310,15 +319,6 @@ fun HeroContentSection(
                                 pending = shuffleActionPending,
                                 onClick = onRandomEpisodeClick,
                                 focusRequester = randomEpisodeFocusRequester,
-                                onFocused = onHeroActionFocused
-                            )
-                        }
-
-                        if (onOpenFullShow != null) {
-                            ActionIconButton(
-                                icon = Icons.Default.VideoLibrary,
-                                contentDescription = stringResource(R.string.hero_open_full_show),
-                                onClick = onOpenFullShow,
                                 onFocused = onHeroActionFocused
                             )
                         }
