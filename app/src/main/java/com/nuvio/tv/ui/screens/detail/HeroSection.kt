@@ -72,6 +72,7 @@ import com.nuvio.tv.ui.components.SynopsisDescription
 import com.nuvio.tv.ui.theme.NuvioTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.VideoLibrary
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.ui.platform.LocalContext
@@ -106,6 +107,7 @@ fun HeroContentSection(
     episodeShuffle: com.nuvio.tv.domain.model.EpisodeShuffleSettings = com.nuvio.tv.domain.model.EpisodeShuffleSettings(),
     shuffleActionPending: Boolean = false,
     onRandomEpisodeClick: () -> Unit = {},
+    onOpenFullShow: (() -> Unit)? = null,
     randomEpisodeFocusRequester: FocusRequester? = null,
     hideLogoDuringTrailer: Boolean = false,
     mdbListRatings: MDBListRatings? = null,
@@ -308,6 +310,15 @@ fun HeroContentSection(
                                 pending = shuffleActionPending,
                                 onClick = onRandomEpisodeClick,
                                 focusRequester = randomEpisodeFocusRequester,
+                                onFocused = onHeroActionFocused
+                            )
+                        }
+
+                        if (onOpenFullShow != null) {
+                            ActionIconButton(
+                                icon = Icons.Default.VideoLibrary,
+                                contentDescription = stringResource(R.string.hero_open_full_show),
+                                onClick = onOpenFullShow,
                                 onFocused = onHeroActionFocused
                             )
                         }

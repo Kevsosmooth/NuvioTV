@@ -2491,6 +2491,9 @@ private fun MetaDetailsContent(
                                 }
                             }
                         },
+                        onOpenFullShow = resolveFullShowId(meta)?.let { showId ->
+                            { onNavigateToDetail(showId, meta.apiType, null) }
+                        },
                         episodeShuffle = episodeShuffle,
                         shuffleActionPending = stoppingShuffle,
                         randomEpisodeFocusRequester = randomEpisodeFocusRequester,
